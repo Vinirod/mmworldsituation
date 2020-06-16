@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/view_pager_fragment">
+
+    <fragment
+        android:id="@+id/view_pager_fragment"
+        android:name="br.com.module.situationworld.views.fragments.HomeViewPagerFragment"
+        tools:layout="@layout/fragment_view_pager">
+
+        <action
+            android:id="@+id/action_view_pager_fragment_to_fragment_world"
+            app:destination="@id/fragment_world"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_world"
+        android:name="br.com.module.situationworld.views.fragments.FragmentWorld"
+        android:label="@string/world"
+        tools:layout="@layout/fragment_world">
+        <argument
+            android:name="filteringId"
+            app:argType="string" />
+    </fragment>
+</navigation>

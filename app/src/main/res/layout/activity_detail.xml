@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="country" type="br.com.module.situationworld.models.Country"/>
+        <import type="br.com.module.situationworld.utils.NumberFormatCustomUtil"/>
+    </data>
+
+    <FrameLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.github.ksoichiro.android.observablescrollview.ObservableScrollView
+            android:id="@+id/idSlContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/idRecyclerView"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/idImgFlag"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/parallax_image_height"
+                    android:transitionName="@string/app_transition_imagem"
+                    android:scaleType="centerCrop"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@+id/idImgFlag"
+                    android:id="@+id/idCdCases">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:id="@+id/idTxtAboutCases"
+                            android:text="@string/about_cases"
+                            android:textColor="@color/colorPrimary"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:text="@{`Total: ` + NumberFormatCustomUtil.longToStringNoDecimal(country.cases)}"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`Today cases: ` + NumberFormatCustomUtil.longToStringNoDecimal(country.todayCases)}"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`Cases per one million: ` + NumberFormatCustomUtil.floatToStringNoDecimal(country.casesPerOneMillion)}"
+                            android:fontFamily="@font/rregular"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/idCdCases"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/idCvDeaths">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:id="@+id/idTxtAboutDeaths"
+                            android:text="@string/about_deaths"
+                            android:textColor="@color/colorPrimary"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:text="@{`Total: ` + NumberFormatCustomUtil.longToStringNoDecimal(country.deaths)}"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`Today deaths: ` + NumberFormatCustomUtil.longToStringNoDecimal(country.todayDeaths)}"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`Deaths per one million: ` + NumberFormatCustomUtil.floatToStringNoDecimal(country.deathsPerOneMillion)}"
+                            android:fontFamily="@font/rregular"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/idCvDeaths"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/idCvRecovered">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:id="@+id/idTxtAboutRecovered"
+                            android:text="@string/about_recovered"
+                            android:textColor="@color/colorPrimary"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`Deaths per one million: ` + NumberFormatCustomUtil.floatToStringNoDecimal(country.recovered)}"
+                            android:fontFamily="@font/rregular"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/idCvRecovered"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/idCvTests">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:id="@+id/idTxtAboutTest"
+                            android:text="@string/about_tests"
+                            android:textColor="@color/colorPrimary"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`Total: ` + NumberFormatCustomUtil.longToStringNoDecimal(country.tests)}"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`Tests per one million: ` + NumberFormatCustomUtil.floatToStringNoDecimal(country.testsPerOneMillion)}"
+                            android:fontFamily="@font/rregular"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/idCvTests"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/idCvCritical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:text="@string/about_criticals"
+                            android:textColor="@color/colorPrimary"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`Total: ` + NumberFormatCustomUtil.longToStringNoDecimal(country.critical)}"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`Critical per one million: ` + NumberFormatCustomUtil.floatToStringNoDecimal(country.criticalPerOneMillion)}"
+                            android:fontFamily="@font/rregular"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/idCvCritical"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/idCvActive">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:text="@string/about_actives"
+                            android:textColor="@color/colorPrimary"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`Total: ` + NumberFormatCustomUtil.longToStringNoDecimal(country.active)}"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`Active per one million: ` + NumberFormatCustomUtil.floatToStringNoDecimal(country.activePerOneMillion)}"
+                            android:fontFamily="@font/rregular"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/idCvActive"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/idCvCountryInfo">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:id="@+id/idTxtAboutCountry"
+                            android:text="@string/about_country"
+                            android:textColor="@color/colorPrimary"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`ISO2: ` + country.countryInfo.iso2}"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`ISO3: ` + country.countryInfo.iso3}"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="16dp"
+                            android:text="@{`Latitude: ` + country.countryInfo.latitude}"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:text="@{`Longitude: ` + country.countryInfo.longitude}"
+                            android:layout_marginTop="16dp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:text="@{`Population: ` + NumberFormatCustomUtil.longToStringNoDecimal(country.population)}"
+                            android:layout_marginTop="16dp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/rregular"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:text="@{`Population: ` + country.continents}"
+                            android:layout_marginTop="16dp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/rregular"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+        </com.github.ksoichiro.android.observablescrollview.ObservableScrollView>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/idTbDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:elevation="6dp"
+            android:minHeight="?attr/actionBarSize"
+            app:titleTextAppearance="@style/AppTheme.Toolbar.Title" />
+    </FrameLayout>
+</layout>

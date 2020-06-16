@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MM World Situation</string>
+    <string name="info">Welcome to MM World Situation</string>
+    <string name="info_update">See updated information about situation in the world.</string>
+    <string name="title_activity_main">SituationWorld</string>
+    <string name="situation">World Situation</string>
+    <string name="world">World</string>
+    <string name="about_cases">About cases</string>
+    <string name="about_deaths">About deaths</string>
+    <string name="about_criticals">About criticals</string>
+    <string name="about_actives">About actives</string>
+    <string name="about_active">About active</string>
+    <string name="about_country">About country</string>
+    <string name="about_recovered">About recovered</string>
+    <string name="about_tests">About tests</string>
+    <string name="about_state_province">About state or province</string>
+    <string name="app_transition_imagem">transition_imagem</string>
+    <string name="app_detail">Detail</string>
+    <string name="menu_search">Search</string>
+    <string name="filtering">Filtering</string>
+</resources>

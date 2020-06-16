@@ -1,0 +1,106 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingLeft="8dp"
+        android:paddingStart="8dp">
+
+        <LinearLayout
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="84dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                app:civ_border_color="@color/colorBakcgroundDark"
+                app:civ_border_width="0.8dp"
+                android:id="@+id/idImgFlag" />
+
+            <ProgressBar
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="22dp"
+                android:id="@+id/idPgrFlag"
+                android:layout_gravity="center_horizontal|center_vertical" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:id="@+id/idTxtName"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:textAllCaps="true"
+                android:fontFamily="@font/rregular"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/idTxtCases"
+                android:text="Cases"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:maxLines="3"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/rregular"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/idTxtContinent"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:maxLines="3"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/rregular"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="64dp"
+            android:layout_height="match_parent"
+            android:gravity="end|center_vertical"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/idTxtIso3"
+                android:text="Cases"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:maxLines="3"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/rregular"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/div_recycler_view" />
+
+</LinearLayout>
+
