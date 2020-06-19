@@ -7,6 +7,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import br.com.module.situationworld.R
 import br.com.module.situationworld.utils.GlideViewUtils
 import com.bumptech.glide.Glide
@@ -22,6 +23,8 @@ class LaunchScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_launch_screen)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         mLnTop = findViewById(R.id.idLnTop)
         mLnBottom = findViewById(R.id.idLnBottom)

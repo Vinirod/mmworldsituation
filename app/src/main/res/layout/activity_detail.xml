@@ -160,7 +160,7 @@
                             android:textSize="16sp"
                             android:textStyle="bold"
                             android:layout_marginTop="16dp"
-                            android:text="@{`Deaths per one million: ` + NumberFormatCustomUtil.floatToStringNoDecimal(country.recovered)}"
+                            android:text="@{`Recovered: ` + NumberFormatCustomUtil.floatToStringNoDecimal(country.recovered)}"
                             android:fontFamily="@font/rregular"/>
 
                     </LinearLayout>
@@ -365,7 +365,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="16sp"
-                            android:text="@{`Population: ` + country.continents}"
+                            android:text="@{`Continent: ` + country.continents}"
                             android:layout_marginTop="16dp"
                             android:textStyle="bold"
                             android:fontFamily="@font/rregular"/>

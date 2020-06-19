@@ -8,6 +8,7 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import br.com.module.situationworld.R
@@ -38,6 +39,8 @@ class DetailActivity : AppCompatActivity() , ObservableScrollViewCallbacks {
         super.onCreate(savedInstanceState)
 
         val binding = DataBindingUtil.setContentView<ActivityDetailBinding>(this@DetailActivity, R.layout.activity_detail)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         mCountry = intent.getSerializableExtra("COUNTRY") as Country
         binding.country = mCountry
