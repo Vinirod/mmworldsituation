@@ -42,28 +42,42 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-    implementation 'io.github.yavski:fab-speed-dial:1.0.6'
-    implementation 'de.hdodenhof:circleimageview:3.0.1'
-    implementation "com.github.ksoichiro:android-observablescrollview:1.6.0"
-    implementation("com.squareup.okhttp3:logging-interceptor:4.6.0")
-    implementation "com.github.bumptech.glide:glide:$version_glide"
-    implementation "com.github.bumptech.glide:compiler:$version_glide"
-    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
-    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
-    implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
-    implementation "org.koin:koin-core:$koin_version"
-    androidTestImplementation "org.koin:koin-test:$koin_version"
-    kapt "com.github.bumptech.glide:glide:$version_glide"
-    annotationProcessor "com.github.bumptech.glide:compiler:$version_glide"
+
+    def dependencies = rootProject.ext.dependencies
+
+    implementation dependencies.fileTree
+    implementation dependencies.koin
+    implementation dependencies.koinViewModel
+    implementation dependencies.retrofitGson
+    implementation dependencies.retrofitMoshi
+    implementation dependencies.retrofitScalars
+    implementation dependencies.retrofit
+    implementation dependencies.navigationVersion
+    implementation dependencies.glideCompiler
+    implementation dependencies.glide
+    implementation dependencies.loggingInterceptor
+    implementation dependencies.observableScrollView
+    implementation dependencies.circleImageView
+    implementation dependencies.fabSpeed
+    implementation dependencies.androidChart
+    implementation dependencies.material
+    implementation dependencies.androidxConstraint
+    implementation dependencies.androidxKtx
+    implementation dependencies.androidxCompat
+    implementation dependencies.kotlin
+    implementation dependencies.rxJava
+    implementation dependencies.rxKotlin
+    implementation dependencies.rxAndroid
+    implementation dependencies.koin
+    implementation dependencies.room
+    implementation dependencies.roomRxJava
+    implementation dependencies.roomCompiler
+    kapt dependencies.glideKapt
+
+    // Required for local unit tests (JUnit 4 framework)
+    testImplementation 'junit:junit:4.12'
+
+    // Required for instrumented tests
+    androidTestImplementation 'com.android.support:support-annotations:24.0.0'
+    androidTestImplementation 'com.android.support.test:runner:0.5'
 }
