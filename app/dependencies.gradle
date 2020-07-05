@@ -1,0 +1,58 @@
+ext {
+
+    kotlin_version = '1.3.72'
+    glide = '4.11.0'
+    navigationVersion = '2.2.2'
+    retrofit = '2.8.1'
+    retrofitGson = '2.4.0'
+    koin_version = '2.1.6'
+    rxJavaVersion = '2.2.7'
+    rxKotlinVersion = '2.2.0'
+    rxAndroidVersion = '2.1.1'
+    androidxCompat = '1.1.0'
+    androidxKtx = '1.2.0'
+    androidxConstraint = '1.1.3'
+    material = '1.1.0'
+    androidChart = '3.1.0'
+    fabSpeed = '1.0.6'
+    circleImageView = '3.0.1'
+    observableScrollView = '1.6.0'
+    loggingInterceptor = '4.6.0'
+    koin = '2.0.1'
+    retrofitVersion = '2.3.0'
+    roomVersion = '2.3.0-alpha01'
+
+    dependencies = [
+            glideKapt                       : "com.github.bumptech.glide:glide:$glide",
+            koinTest                        : "org.koin:koin-test:$koin",
+            testProcessor                   : "com.github.bumptech.glide:compiler:$glide",
+            koin                            : "org.koin:koin-core:$koin",
+            koinViewModel                   : "org.koin:koin-androidx-viewmodel:$koin",
+            retrofitGson                    : "com.squareup.retrofit2:converter-gson:$retrofitGson",
+            retrofitMoshi                   : "com.squareup.retrofit2:converter-moshi:$retrofit",
+            retrofitScalars                 : "com.squareup.retrofit2:converter-scalars:$retrofit",
+            retrofit                        : "com.squareup.retrofit2:retrofit:$retrofit",
+            navigationVersion               : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            glideCompiler                   : "com.github.bumptech.glide:compiler:$glide",
+            glide                           : "com.github.bumptech.glide:glide:$glide",
+            loggingInterceptor              : "com.squareup.okhttp3:logging-interceptor:$loggingInterceptor",
+            observableScrollView            : "com.github.ksoichiro:android-observablescrollview:$observableScrollView",
+            circleImageView                 : "de.hdodenhof:circleimageview:$circleImageView",
+            fabSpeed                        : "io.github.yavski:fab-speed-dial:$fabSpeed",
+            androidChart                    : "com.github.PhilJay:MPAndroidChart:v$androidChart",
+            material                        : "com.google.android.material:material:$material",
+            androidxConstraint              : "androidx.constraintlayout:constraintlayout:$androidxConstraint",
+            androidxKtx                     : "androidx.core:core-ktx:$androidxKtx",
+            androidxCompat                  : "androidx.appcompat:appcompat:$androidxCompat",
+            kotlin                          : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            rxJava                          : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxKotlin                        : "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            rxAndroid                       : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            koin                            : "org.koin:koin-android:$koin",
+            room                            : "androidx.room:room-runtime:$roomVersion",
+            roomRxJava                      : "androidx.room:room-rxjava2:$roomVersion",
+            roomCompiler                    : "androidx.room:room-compiler:$roomVersion",
+            fileTree                        : fileTree(dir: 'libs', include: ['*.jar']),
+
+    ]
+}
