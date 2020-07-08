@@ -12,27 +12,18 @@ abstract class AppDataBase : RoomDatabase() {
 
     abstract fun worldDao(): WorldDao
 
-    companion object{
-        var TEST_MODE = false
+    companion object {
 
-        private val dataBaseName ="MM_WORLD_SITUATION"
+        @Volatile private var INSTANCE: AppDataBase? = null
 
-        private lateinit var db: AppDataBase
-        private lateinit var dbInstance: WorldDao
-
-        fun getInstance(context: Context): WorldDao {
-            if(TEST_MODE == null){
-                db = Room.databaseBuilder(context, AppDataBase::class.java, dataBaseName)
-                    .allowMainThreadQueries()
-                    .build()
-
-                dbInstance = db.worldDao()
+        fun getInstance(context: Context): AppDataBase =
+            INSTANCE ?: synchronized(this) {
+                INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
             }
-            return dbInstance
-        }
 
-        private fun close(){
-            db.close()
-        }
+        private fun buildDatabase(context: Context) =
+            Room.databaseBuilder(context.applicationContext,
+                AppDataBase::class.java, "MMWorldSituation.db")
+                .build()
     }
 }

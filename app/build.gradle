@@ -15,6 +15,12 @@ android {
         versionName "3.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = ["room.incremental":"true"]
+//            }
+//        }
     }
 
     buildTypes {
@@ -39,45 +45,93 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    testOptions {
+        unitTests.includeAndroidResources = true
+        unitTests.returnDefaultValues = true
+    }
+
+    useLibrary 'android.test.runner'
+
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
 }
 
 dependencies {
 
     def dependencies = rootProject.ext.dependencies
 
-    implementation dependencies.fileTree
-    implementation dependencies.koin
-    implementation dependencies.koinViewModel
-    implementation dependencies.retrofitGson
-    implementation dependencies.retrofitMoshi
-    implementation dependencies.retrofitScalars
-    implementation dependencies.retrofit
-    implementation dependencies.navigationVersion
-    implementation dependencies.glideCompiler
-    implementation dependencies.glide
-    implementation dependencies.loggingInterceptor
-    implementation dependencies.observableScrollView
-    implementation dependencies.circleImageView
-    implementation dependencies.fabSpeed
-    implementation dependencies.androidChart
-    implementation dependencies.material
-    implementation dependencies.androidxConstraint
-    implementation dependencies.androidxKtx
-    implementation dependencies.androidxCompat
-    implementation dependencies.kotlin
-    implementation dependencies.rxJava
-    implementation dependencies.rxKotlin
-    implementation dependencies.rxAndroid
-    implementation dependencies.koin
-    implementation dependencies.room
-    implementation dependencies.roomRxJava
-    implementation dependencies.roomCompiler
-    kapt dependencies.glideKapt
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'io.github.yavski:fab-speed-dial:1.0.6'
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+    implementation "com.github.ksoichiro:android-observablescrollview:1.6.0"
+    implementation("com.squareup.okhttp3:logging-interceptor:4.6.0")
+    implementation "com.github.bumptech.glide:glide:$version_glide"
+    implementation "com.github.bumptech.glide:compiler:$version_glide"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
+    implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
+    implementation "org.koin:koin-core:$koin_version"
+    implementation "org.koin:koin-android:2.1.6"
+    kapt "com.github.bumptech.glide:glide:$version_glide"
 
-    // Required for local unit tests (JUnit 4 framework)
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    def room_version = "2.2.5"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version" // For Kotlin use kapt instead of annotationProcessor
+
+    // optional - RxJava support for Room
+    implementation "androidx.room:room-rxjava2:$room_version"
+
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "androidx.room:room-guava:$room_version"
+
+    // Core library
+    androidTestImplementation 'androidx.test:core:1.0.0'
+
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test:rules:1.1.0'
+
+    // Assertions
+    androidTestImplementation 'androidx.test.ext:junit:1.0.0'
+    androidTestImplementation 'androidx.test.ext:truth:1.0.0'
+    androidTestImplementation 'com.google.truth:truth:0.42'
+
+    // Espresso dependencies
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-web:3.1.0'
+    androidTestImplementation 'androidx.test.espresso.idling:idling-concurrent:3.1.0'
+
+    androidTestImplementation "android.arch.persistence.room:runtime:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
+
+    // The following Espresso dependency can be either "implementation"
+    // or "androidTestImplementation", depending on whether you want the
+    // dependency to appear on your APK's compile classpath or the test APK
+    // classpath.
+    androidTestImplementation 'androidx.test.espresso:espresso-idling-resource:3.1.0'
+
+    // Required -- JUnit 4 framework
     testImplementation 'junit:junit:4.12'
+    // Optional -- Robolectric environment
+    testImplementation 'androidx.test:core:1.0.0'
+    // Optional -- Mockito framework
+    testImplementation 'org.mockito:mockito-core:1.10.19'
 
-    // Required for instrumented tests
-    androidTestImplementation 'com.android.support:support-annotations:24.0.0'
-    androidTestImplementation 'com.android.support.test:runner:0.5'
 }

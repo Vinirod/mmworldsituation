@@ -1,26 +1,37 @@
 package br.com.module.situationworld.room
 
+
+import android.content.Context
 import androidx.room.Insert
 import androidx.room.Room
-import androidx.test.InstrumentationRegistry
-import androidx.test.runner.AndroidJUnit4
-import br.com.module.situationworld.room.database.AppDataBase
-import junit.framework.Assert
-import org.junit.After
-import org.junit.Before
-import org.junit.runner.RunWith
+import androidx.test.core.app.ApplicationProvider
+import br.com.module.situationworld.room.dao.WorldDao
 
-@RunWith(AndroidJUnit4::class)
+
+import br.com.module.situationworld.room.database.AppDataBase
+import org.junit.After
+import org.junit.Assert
+import org.junit.Before
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.runners.MockitoJUnitRunner
+import java.io.IOException
+
+@RunWith(MockitoJUnitRunner::class)
 class WorldDaoTest {
 
     private lateinit var mAppDataBase: AppDataBase
 
+    @Mock
+    private lateinit var context: Context
+
     @Before
     fun initDb(){
-        mAppDataBase = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getContext(), AppDataBase::class.java).build()
+        mAppDataBase = Room.inMemoryDatabaseBuilder(context, AppDataBase::class.java).build()
     }
 
-    @Insert
+    @Test
     fun insertWorld(){
         val world = WorldMock.makeWorldEntity()
         mAppDataBase.worldDao().insert(world)
@@ -31,6 +42,7 @@ class WorldDaoTest {
     }
 
     @After
+    @Throws(IOException::class)
     fun closeDb(){
         mAppDataBase.close()
     }
