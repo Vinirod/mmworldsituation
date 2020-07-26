@@ -1,15 +1,10 @@
 package br.com.module.situationworld.room.entity
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 import br.com.module.situationworld.room.entity.World.Companion.TABLE_NAME
 
 @Entity(tableName = TABLE_NAME)
-data class World(
-
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = COLUMN_ID) var id: Int,
+class World(
     @ColumnInfo(name = COLUMN_CASES) var cases: Long,
     @ColumnInfo(name = COLUMN_TODAY_CASES) var todayCases: Long,
     @ColumnInfo(name = COLUMN_TODAY_DEATHS) var todayDeaths: Long,
@@ -22,6 +17,9 @@ data class World(
     @ColumnInfo(name = COLUMN_TESTS_PER_ONE_MILLION) var testsPerOneMillion: Float,
     @ColumnInfo(name = COLUMN_AFFECTED_COUNTRIES) var affectedCountries: Long,
     @ColumnInfo(name = COLUMN_DEATHS) var deaths: Long){
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = COLUMN_ID) val id: Int? = null
 
     companion object{
         const val TABLE_NAME = "WORLD"
