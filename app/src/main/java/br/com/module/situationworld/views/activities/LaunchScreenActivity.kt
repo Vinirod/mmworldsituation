@@ -67,4 +67,6 @@ class LaunchScreenActivity : AppCompatActivity() {
     private fun setImageOnImageView() {
         GlideViewUtils.initGlidView(this, R.drawable.imgbg, mImgBackground)
     }
+
+    //Ola mundo
 }
