@@ -68,4 +68,5 @@ class LaunchScreenActivity : AppCompatActivity() {
         GlideViewUtils.initGlidView(this, R.drawable.imgbg, mImgBackground)
     }
     //Ola mundo
+    //Ola mundo 2
 }
